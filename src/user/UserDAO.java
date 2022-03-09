@@ -15,10 +15,10 @@ public class UserDAO {
     //메소드마다 반복되는 코드를 이곳에 넣으면 코드가 간소화된다
     public UserDAO() {
         try {
-            String dbURL = "jdbc:mariadb://localhost:3306/bbs";
+            String dbURL = "jdbc:mysql://localhost:3306/bbs";
             String dbID = "root";
             String dbPassword = "soboso!A";
-            Class.forName("org.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
         } catch (Exception e) {
             e.printStackTrace();
