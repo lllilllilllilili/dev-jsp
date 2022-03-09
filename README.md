@@ -1,4 +1,4 @@
-## JSP·Î °£´ÜÇÑ °Ô½ÃÆÇ ¸¸µé±â
+## JSPë¡œ ê°„ë‹¨í•œ ê²Œì‹œíŒ ë§Œë“¤ê¸°
 
 ## Skill Version
 JSP, mysql 8.0.28
@@ -18,7 +18,7 @@ mysql> create table user (
 
 Use Case
 ```$xslt
-$ insert into user values('gildong', '123456', 'È«±æµ¿', '³²ÀÚ', 'gildong@naver.com');
+$ insert into user values('gildong', '123456', 'í™ê¸¸ë™', 'ë‚¨ì', 'gildong@naver.com');
 $ commit
 ```
 
