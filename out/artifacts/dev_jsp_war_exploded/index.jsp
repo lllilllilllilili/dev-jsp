@@ -8,9 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>Hello World!</title>
+    <title>JSP 게시판 웹 사이트</title>
   </head>
   <body>
-  Hello World!
+  <script>
+    location.href = 'login.jsp';
+  </script>
   </body>
 </html>
