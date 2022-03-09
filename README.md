@@ -15,3 +15,10 @@ mysql> create table user (
     -> PRIMARY KEY (userID)
     -> );
 ```
+
+Use Case
+```$xslt
+$ insert into user values('gildong', '123456', '홍길동', '남자', 'gildong@naver.com');
+$ commit
+```
+
