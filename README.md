@@ -22,3 +22,6 @@ $ insert into user values('gildong', '123456', '홍길동', '남자', 'gildong@n
 $ commit
 ```
 
+## Result 
+[](/img/login.png)
+[](/img/login_success.png)
