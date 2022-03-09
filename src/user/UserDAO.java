@@ -6,13 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class UserDAO {
-    private Connection conn; //ÀÚ¹Ù¿Í µ¥ÀÌÅÍº£ÀÌ½º¸¦ ¿¬°á
-    private PreparedStatement pstmt; //Äõ¸®¹® ´ë±â ¹× ¼³Á¤
-    private ResultSet rs; //°á°ú°ª ¹Ş¾Æ¿À±â
+    private Connection conn; //ìë°”ì™€ ë°ì´í„°ë² ì´ìŠ¤ë¥¼ ì—°ê²°
+    private PreparedStatement pstmt; //ì¿¼ë¦¬ë¬¸ ëŒ€ê¸° ë° ì„¤ì •
+    private ResultSet rs; //ê²°ê³¼ê°’ ë°›ì•„ì˜¤ê¸°
 
-    //±âº» »ı¼ºÀÚ
-    //UserDAO°¡ ½ÇÇàµÇ¸é ÀÚµ¿À¸·Î »ı¼ºµÇ´Â ºÎºĞ
-    //¸Ş¼Òµå¸¶´Ù ¹İº¹µÇ´Â ÄÚµå¸¦ ÀÌ°÷¿¡ ³ÖÀ¸¸é ÄÚµå°¡ °£¼ÒÈ­µÈ´Ù
+    //ê¸°ë³¸ ìƒì„±ì
+    //UserDAOê°€ ì‹¤í–‰ë˜ë©´ ìë™ìœ¼ë¡œ ìƒì„±ë˜ëŠ” ë¶€ë¶„
+    //ë©”ì†Œë“œë§ˆë‹¤ ë°˜ë³µë˜ëŠ” ì½”ë“œë¥¼ ì´ê³³ì— ë„£ìœ¼ë©´ ì½”ë“œê°€ ê°„ì†Œí™”ëœë‹¤
     public UserDAO() {
         try {
             String dbURL = "jdbc:mariadb://localhost:3306/bbs";
@@ -20,31 +20,28 @@ public class UserDAO {
             String dbPassword = "soboso!A";
             Class.forName("org.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    //·Î±×ÀÎ ¿µ¿ª
+    //ë¡œê·¸ì¸ ì˜ì—­
     public int login(String userID, String userPassword) {
         String sql = "select userPassword from user where userID = ?";
         try {
-            pstmt = conn.prepareStatement(sql); //sqlÄõ¸®¹®À» ´ë±â ½ÃÅ²´Ù
-            pstmt.setString(1, userID); //Ã¹¹øÂ° '?'¿¡ ¸Å°³º¯¼ö·Î ¹Ş¾Æ¿Â 'userID'¸¦ ´ëÀÔ
-            rs = pstmt.executeQuery(); //Äõ¸®¸¦ ½ÇÇàÇÑ °á°ú¸¦ rs¿¡ ÀúÀå
-            if(rs.next()) {
-                if(rs.getString(1).equals(userPassword)) {
-                    return 1; //·Î±×ÀÎ ¼º°ø
-                }else
-                    return 0; //ºñ¹Ğ¹øÈ£ Æ²¸²
+            pstmt = conn.prepareStatement(sql); //sqlì¿¼ë¦¬ë¬¸ì„ ëŒ€ê¸° ì‹œí‚¨ë‹¤
+            pstmt.setString(1, userID); //ì²«ë²ˆì§¸ '?'ì— ë§¤ê°œë³€ìˆ˜ë¡œ ë°›ì•„ì˜¨ 'userID'ë¥¼ ëŒ€ì…
+            rs = pstmt.executeQuery(); //ì¿¼ë¦¬ë¥¼ ì‹¤í–‰í•œ ê²°ê³¼ë¥¼ rsì— ì €ì¥
+            if (rs.next()) {
+                if (rs.getString(1).equals(userPassword)) {
+                    return 1; //ë¡œê·¸ì¸ ì„±ê³µ
+                } else
+                    return 0; //ë¹„ë°€ë²ˆí˜¸ í‹€ë¦¼
             }
-            return -1; //¾ÆÀÌµğ ¾øÀ½
+            return -1; //ì•„ì´ë”” ì—†ìŒ
         }catch (Exception e) {
             e.printStackTrace();
         }
-        return -2; //¿À·ù
+        return -2; //ì˜¤ë¥˜
     }
-
-
-
 }

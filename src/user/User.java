@@ -7,7 +7,7 @@ public class User {
     private String userGender;
     private String userEmail;
 
-//    자바 빈즈 구성
+
     public void setUserID(String userID) {
         this.userID = userID;
     }

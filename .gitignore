@@ -1,10 +1,10 @@
 # project init
-/.idea/
+.idea/
 
 # bootstrap files
-/web/css/
-/web/fonts/
-/web/js/
+web/css/
+web/fonts/
+web/js/
 
 # jdbc connector
-/web/WEB-INF/lib/
+web/WEB-INF/lib/
